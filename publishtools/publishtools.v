@@ -279,7 +279,7 @@ fn main() {
 			publishermod.webserver_run(publ, cfg) // would be better to have the develop
 		} else {
 			println(' - develop website: $webrepo')
-			installers.website_develop(&cmd, mut &cfg) ?
+			installers.website_develop(&cmd, mut cfg) ?
 		}
 	}
 	
@@ -456,35 +456,35 @@ fn main() {
 		mut cfg := installers.config_get(cmd) ?
 
 		if install {
-			installers.digitaltwin_install(mut &cfg, false) or {
+			installers.digitaltwin_install(mut cfg, false) or {
 				panic(' ** ERROR: cannot install digital twin. Error was:\n$err')
 			}
 		} else if update {
-			installers.digitaltwin_install(mut &cfg, true) or {
+			installers.digitaltwin_install(mut cfg, true) or {
 				panic(' ** ERROR: cannot update digital twin. Error was:\n$err')
 			}
 		} else if start {
-			installers.digitaltwin_start(mut &cfg, production, false) or {
+			installers.digitaltwin_start(mut cfg, production, false) or {
 				panic(' ** ERROR: cannot start digital twin. Error was:\n$err')
 			}
 		} else if restart {
-			installers.digitaltwin_restart(mut &cfg, production) or {
+			installers.digitaltwin_restart(mut cfg, production) or {
 				panic(' ** ERROR: cannot restart digital twin. Error was:\n$err')
 			}
 		} else if reload {
-			installers.digitaltwin_reload(mut &cfg, production) or {
+			installers.digitaltwin_reload(mut cfg, production) or {
 				panic(' ** ERROR: cannot reload digital twin. Error was:\n$err')
 			}
 		} else if stop {
-			installers.digitaltwin_stop(mut &cfg, production) or {
+			installers.digitaltwin_stop(mut cfg, production) or {
 				panic(' ** ERROR: cannot stop digital twin. Error was:\n$err')
 			}
 		} else if status {
-			installers.digitaltwin_status(mut &cfg, production) or {
+			installers.digitaltwin_status(mut cfg, production) or {
 				panic(' ** ERROR: cannot get status for digital twin. Error was:\n$err')
 			}
 		} else if logs {
-			installers.digitaltwin_logs(mut &cfg, production) or {
+			installers.digitaltwin_logs(mut cfg, production) or {
 				panic(' ** ERROR: cannot get logs for digital twin. Error was:\n$err')
 			}
 		} else {
