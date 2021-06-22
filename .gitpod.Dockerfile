@@ -3,7 +3,7 @@ FROM thevlang/vlang:latest
 RUN apt-get update && \
     apt-get install -yq sudo
 
-RUN apt install -y redis-server make
+RUN apt install -y redis-server make libgc-dev
 
 ### Gitpod user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
